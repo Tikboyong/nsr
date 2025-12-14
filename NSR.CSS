@@ -13,7 +13,18 @@ body {
     width: 260px;
     max-width: 90%;
     margin: 15px auto;
+    border-radius: 10%;
 }
+@keyframes logoPulse {
+    0% { filter: drop-shadow(0 0 6px rgb(250, 0, 0)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 18px rgb(255, 0, 0)); transform: scale(1.05); }
+    100% { filter: drop-shadow(0 0 6px rgb(255, 0, 0)); transform: scale(1); }
+}
+
+.logo {
+    animation: logoPulse 2s infinite;
+}
+
 
 /* ================= BACKGROUND COVER ================= */
 .background {
@@ -25,13 +36,18 @@ body {
 /* ================= TITLES ================= */
 h1 {
     color: rgb(230, 28, 28);
-    margin-top: -10px;
+    margin-top: 1px;
+    font-weight: bold;
     transition: 0.3s ease-in-out;
+    animation: colorPulse 1s infinite;
+
 }
 
+
 h2 {
-    margin-top: -10px;
-    color: #ccc;
+    margin-top: 4%;
+    color: #ffffff;
+    font-weight: bold;
     transition: 0.3s ease-in-out;
 }
 
@@ -57,9 +73,9 @@ h2 {
     box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
     display: flex;
     flex-direction: column;
-    text-align: center;
+    text-align: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    font-style: sans-serif bold;
+    line-height: 1.6;
 }
 
 .service-box:hover,
@@ -67,22 +83,65 @@ h2 {
     transform: translateY(-6px);
     box-shadow: 0 0 25px rgba(255, 0, 0, 1);
 }
+/* ================= TROPHY REVIEW HOVER MESSAGE ================= */
+.project-card {
+    position: relative;
+    overflow: visible;
+}
+
+/* Hidden by default */
+.review-message {
+    position: absolute;
+    bottom: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid red;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 25;
+}
+
+/* Show on hover */
+.project-card:hover .review-message {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 768px) {
+    .review-message {
+        position: absolute;
+        bottom: 20px;
+        width: 90%;
+    }
+}
+
 
 /* ================= TEXT ================= */
 .service-box h4,
 .project-card h3 {
     color: #f8f8f8;
+    font-weight: bold;
+    font-display: center;
     font-size: 22px;
     margin-bottom: 10px;
 }
 
 .service-info p,
 .project-card p {
-    font-size: 15px;
+    font-size: 16px;
     color: #ddd;
     line-height: 1.6;
     margin-top: auto;
 }
+
 
 /* ================= IMAGES (OPTIMIZED & RESPONSIVE) ================= */
 .project-card img,
@@ -318,17 +377,22 @@ h2 {
     /* Stack service boxes */
     .services {
         flex-direction: column;
-        padding: 15px;
+        padding: 5px;
+        line-height: 1.6;
+        margin-top: auto;
     }
 
     .service-box {
         width: 100%;
         max-width: 95%;
+        line-height: 1.6;
+        margin-top: auto;
     }
 
     /* Trophy & Rider cards – one per row */
     .projects-container {
         flex-direction: column;
+        border-spacing: auto;
         padding: 10px;
     }
 
