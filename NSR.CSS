@@ -444,3 +444,12 @@ h2 {
         width: 100%;
     }
 }
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    user-select: none;
+    pointer-events: none;
+    z-index: 9999; /* ensures snow is on top */
+}

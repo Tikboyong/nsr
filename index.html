@@ -14,7 +14,7 @@
 
     <!-- HEADER CONTENT -->
     <header>
-        <img src="NSR.png" alt="Neck Shot Racing Logo" class="logo">
+        <img src="NSR X-MAS 1.png" alt="Neck Shot Racing Logo" class="logo">
         <h1>Neck Shot Racing</h1>
         <h1>Sasalpok Pero Hindi Sasabog</h1>
     </header>
@@ -249,5 +249,39 @@ Neck Shot Racing embodies our competitive spirit and winning attitude. Our signa
             showSlide(index);
         });
     });
+    
 </script>
+<script>
+    const snowCount = 50; // Number of snowflakes
+
+    for (let i = 0; i < snowCount; i++) {
+        const snow = document.createElement('div');
+        snow.classList.add('snowflake');
+        snow.innerHTML = '❄'; // You can also use '*'
+        snow.style.left = Math.random() * window.innerWidth + 'px';
+        snow.style.fontSize = 10 + Math.random() * 20 + 'px';
+        snow.style.opacity = Math.random();
+        document.body.appendChild(snow);
+
+        let top = Math.random() * window.innerHeight;
+        let speed = 1 + Math.random() * 3;
+        let drift = Math.random() * 1 - 0.5;
+
+        function fall() {
+            top += speed;
+            let left = parseFloat(snow.style.left) + drift;
+
+            if (top > window.innerHeight) top = -10;
+            if (left > window.innerWidth) left = 0;
+            if (left < 0) left = window.innerWidth;
+
+            snow.style.top = top + 'px';
+            snow.style.left = left + 'px';
+            requestAnimationFrame(fall);
+        }
+
+        fall();
+    }
+</script>
+
 </body>
