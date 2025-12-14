@@ -1,0 +1,446 @@
+/* ================= GENERAL PAGE STYLING ================= */
+body {
+    background: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* ================= LOGO ================= */
+.logo {
+    width: 260px;
+    max-width: 90%;
+    margin: 15px auto;
+    border-radius: 10%;
+}
+@keyframes logoPulse {
+    0% { filter: drop-shadow(0 0 6px rgb(250, 0, 0)); transform: scale(1); }
+    50% { filter: drop-shadow(0 0 18px rgb(255, 0, 0)); transform: scale(1.05); }
+    100% { filter: drop-shadow(0 0 6px rgb(255, 0, 0)); transform: scale(1); }
+}
+
+.logo {
+    animation: logoPulse 2s infinite;
+}
+
+
+/* ================= BACKGROUND COVER ================= */
+.background {
+    width: 100%;
+    min-height: 60vh;
+    background: url("NSR COVER.jpg") center / cover no-repeat;
+}
+
+/* ================= TITLES ================= */
+h1 {
+    color: rgb(230, 28, 28);
+    margin-top: 1px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    animation: colorPulse 1s infinite;
+
+}
+
+
+h2 {
+    margin-top: 4%;
+    color: #ffffff;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+/* ================= SERVICES & TROPHY SHARED LAYOUT ================= */
+.services,
+.projects-container {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    padding: 25px;
+    flex-wrap: wrap;
+}
+
+/* ================= SERVICE & PROJECT CARD ================= */
+.service-box,
+.project-card {
+    background: #111;
+    border: 2px solid #ff0000;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 12px rgba(255, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    text-align: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    line-height: 1.6;
+}
+
+.service-box:hover,
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 25px rgba(255, 0, 0, 1);
+}
+/* ================= TROPHY REVIEW HOVER MESSAGE ================= */
+.project-card {
+    position: relative;
+    overflow: visible;
+}
+
+/* Hidden by default */
+.review-message {
+    position: absolute;
+    bottom: -110px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    padding: 14px;
+    background: #111;
+    color: #fff;
+    font-size: 14px;
+    line-height: 1.5;
+    border: 2px solid red;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 25;
+}
+
+/* Show on hover */
+.project-card:hover .review-message {
+    opacity: 1;
+    visibility: visible;
+}
+@media (max-width: 768px) {
+    .review-message {
+        position: absolute;
+        bottom: 20px;
+        width: 90%;
+    }
+}
+
+
+/* ================= TEXT ================= */
+.service-box h4,
+.project-card h3 {
+    color: #f8f8f8;
+    font-weight: bold;
+    font-display: center;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service-info p,
+.project-card p {
+    font-size: 16px;
+    color: #ddd;
+    line-height: 1.6;
+    margin-top: auto;
+}
+
+
+/* ================= IMAGES (OPTIMIZED & RESPONSIVE) ================= */
+.project-card img,
+.Picture img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease;
+}
+
+.project-card img:hover,
+.Picture img:hover {
+    transform: scale(1.05);
+}
+
+/* ================= COVER BOX ================= */
+.cover-box {
+    background: #111;
+    border: 2px solid red;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 0 12px red;
+}
+
+/* ================= BUTTON ================= */
+.project-card .btn {
+    margin-top: 15px;
+    padding: 10px;
+    border: 2px solid red;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.project-card .btn:hover {
+    background: red;
+}
+
+/* ================= CONTACT SECTION ================= */
+.contact {
+    margin-top: 5rem;
+}
+
+.contact h2 {
+    margin-bottom: 3rem;
+}
+
+.contact form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 3rem auto;
+    max-width: 900px;
+}
+
+.contact form .input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1 1 45%;
+}
+
+.contact form input,
+.contact form textarea {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    color: #fff;
+    background: #000;
+    border-radius: 10px;
+    border: 2px solid red;
+}
+
+.contact form textarea {
+    min-height: 180px;
+    flex: 1 1 100%;
+}
+/* Image Popup (Lightbox) */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.popup-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.trophy-img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.trophy-img:hover {
+    transform: scale(1.03);
+}
+/* Slideshow inside card */
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 220px; /* adjust as needed */
+    overflow: hidden;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* keeps aspect ratio */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    border-radius: 10px;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+/* Arrows inside card */
+.slideshow .prev, .slideshow .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    padding: 5px 10px;
+    cursor: pointer;
+    user-select: none;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+.slideshow .prev { left: 10px; }
+.slideshow .next { right: 10px; }
+.slideshow .prev:hover,
+.slideshow .next:hover { background: rgba(255,0,0,0.8); }
+
+/* Popup overlay */
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    text-align: center;
+}
+
+.popup-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 10px;
+}
+
+.popup .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup .popup-prev,
+.popup .popup-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+    padding: 5px 15px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+}
+
+.popup .popup-prev { left: 20px; }
+.popup .popup-next { right: 20px; }
+
+.popup .popup-prev:hover,
+.popup .popup-next:hover { background: rgba(255,0,0,0.8); }
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px) {
+
+    body {
+        text-align: center;
+    }
+
+    /* Header text smaller */
+    h1 {
+        font-size: 28px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    /* Stack service boxes */
+    .services {
+        flex-direction: column;
+        padding: 5px;
+        line-height: 1.6;
+        margin-top: auto;
+    }
+
+    .service-box {
+        width: 100%;
+        max-width: 95%;
+        line-height: 1.6;
+        margin-top: auto;
+    }
+
+    /* Trophy & Rider cards – one per row */
+    .projects-container {
+        flex-direction: column;
+        border-spacing: auto;
+        padding: 10px;
+    }
+
+    .project-card {
+        width: 100%;
+        max-width: 95%;
+        margin: auto;
+    }
+
+    /* Images scale properly */
+    .project-card img,
+    .slide {
+        height: auto;
+        max-height: 280px;
+        object-fit: contain;
+    }
+
+    /* Slideshow container */
+    .slideshow {
+        position: relative;
+    }
+
+    /* Bigger arrows for touch */
+    .prev,
+    .next {
+        font-size: 28px;
+        padding: 10px;
+    }
+
+    /* Bigger buttons */
+    .btn {
+        padding: 14px;
+        font-size: 16px;
+    }
+
+    /* Popup image fits screen */
+    .popup-content {
+        max-width: 95%;
+        max-height: 85%;
+    }
+
+    /* Contact form full width */
+    .contact form {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .contact form .input-box {
+        width: 100%;
+    }
+}
